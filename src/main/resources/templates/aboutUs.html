@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info about grp. 5000</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnav a:hover {
+            background-color: #af4d02;
+            color: black;
+        }
+        .topnav a.active {
+            background-color: #af4d02;
+            color: white;
+        }
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+        h3 {
+            position: absolute;
+            left: 1725px;
+            top: -21px;
+        }
+        .logo {
+            position: absolute;
+            right: 14px;
+            top: -2PX;
+        }
+    </style>
+</head>
+
+<body>
+<h3> <img src="https://i.imgur.com/VKkRjuB.png"  width="150" height="50"></h3>
+<div class="topnav">
+    <a href="/">IMDB</a>
+    <a href="Movie">Movie</a>
+    <a href="no">Contact</a>
+    <a class="active" href="About_us">About us</a>
+</div>
+
+<div style="padding-left:16px">
+    <h2>About us</h2>
+</div>
+
+<button class="accordion">Thomas</button>
+<div class="panel">
+    <p>Thomas, bedre kendt som den bedste, sjoveste, smukkeste, smarteste, klogeste, stærkeste og er meget bedre end Jonathan. Thomas er på alle måde overlegen end alle de andre fra gruppe 5000, Hans geniale desing, lops og menuer viser gang for gang hvorfor han er den bedste.  </p>
+</div>
+
+<button class="accordion">Anders</button>
+<div class="panel">
+    <p>Anders, bedre kendt som Anders And. Det fantastiske ved Anders er hans hverdagsagtige, omend ret selvcentrerede person, hans hidsige temperament og hans notoriske uheld. Barks' rendering af figuren fængede læserne, fordi han var så menneskelig - de fleste kan nikke genkendende til de dagligdags problemer han støder ind i, de tanker han gør sig om dem - og i særdeleshed måden han tackler dem på. Men hvor vi andre nok i de fleste tilfælde beholder vores tanker indvendigt, går Anders hele vejen og fører dem ud i livet. Han er god at teste virkeligheden på! Anders giver som regel aldrig op - han vil gå rigtig langt for at bevise at han har ret - også selvom han ved at han ikke har det. Der er INGEN der skal få ham ned med nakken!</p>
+</div>
+
+<button class="accordion">Jonathan</button>
+<div class="panel">
+    <p>Jonathan, bedre kendt som manden der tror han er bedre end Thomas...</p>
+</div>
+
+<button class="accordion">Gustav</button>
+<div class="panel">
+    <p>Gustav, bedre kendt som manden der aldrig er har...</p>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+<div class="logo"> <img src="https://i.imgur.com/VKkRjuB.png" alt="Trulli" width="150" height="50"> </div>
+</body>
+</html>

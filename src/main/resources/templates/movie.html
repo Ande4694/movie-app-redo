@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:padding-Right="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Movie5000</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #myInput {
+            background-image: url('http://www.paulund.co.uk/playground/demo/pretty_search_forms/images/search.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+        #myTable tr {
+            border-bottom: 1px solid #1fdd46;
+        }
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnav a:hover {
+            background-color: #af4d02;
+            color: black;
+        }
+        .topnav a.active {
+            background-color: #af4d02;
+            color: white;
+        }
+        .button {
+            border-radius: 4px;
+            background-color: #1cf400;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 17px;
+            padding: 13px;
+            width: 125px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        .button:hover span {
+            padding-right: 25px;
+        }
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        .logo {
+            position: absolute;
+            right: 14px;
+            top: -2PX;
+        }
+    </style>
+</head>
+
+<body>
+<div class="topnav">
+    <a href="/">IMDB</a>
+    <a class="active" href="movie">Movie</a>
+    <a href="/contact">contact</a>
+    <a href="/aboutUs">About us</a>
+</div>
+
+<div style="padding-left: 38px;padding-right: 4px;";>
+    <h2>Movie List</h2>
+    <a href="/create"><button  class="button"><span>Create </span></button></a><a href="/search"><button  class="button"><span>Search</span></button></a>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Title.." title="Type in a name">
+
+
+    <div class="container">
+
+        <table id="myTable">
+            <thead>
+            <tr class="header">
+                <th style="width:25%;">Title</th>
+                <th style="width:25%;">Genre</th>
+                <th style="width:25%;">Year</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="movie: ${Movies}">
+                <td th:text="${movie.title}"/>
+                <td th:text="${movie.genre}"/>
+                <td th:text="${movie.production}"/>
+                <td>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+</table>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<div class="logo"> <img src="https://i.imgur.com/VKkRjuB.png" alt="Trulli" width="150" height="50"> </div>
+</body>
+</html>
